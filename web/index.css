@@ -1,0 +1,268 @@
+/*
+
+Variablen
+
+*/
+
+:root {
+  --font-color-1: white;
+  --font-color-2: rgba(255, 255, 255, 0.4);
+  --main-bg-color: #2a2a2e;
+}
+
+/*
+
+Allgemeine Styles
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--main-bg-color);
+  padding: 35px;
+  color: var(--font-color-1);
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+}
+
+/*
+
+Allgemeiner Content
+
+*/
+
+article {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--font-color-2);
+  border-radius: 20px;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  color: var(--font-color-2);
+}
+
+/* searchbar */
+
+.search-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-end;
+  margin-top: 15px;
+  margin-right: 35px;
+}
+
+.search {
+  padding: 10px;
+  padding-right: 35px;
+  border-radius: 5px;
+  border: 1px solid var(--font-color-2);
+  background: none;
+  color: var(--font-color-1);
+  width: 100%;
+  max-width: 250px;
+}
+
+/* datalist dropdown */
+
+.search-container.active .datalist {
+  display: block;
+}
+
+.datalist {
+  display: none;
+  position: absolute;
+  margin-top: 5px;
+  padding: 5px;
+  width: 100%;
+  max-height: 350px;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  border-radius: 2px;
+  background: var(--font-color-1);
+  overflow: hidden;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.datalist li {
+  display: block;
+  text-align: left;
+  padding: 10px;
+  color: var(--main-bg-color);
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.datalist li:hover {
+  border: 1px solid;
+  border-color: var(--main-bg-color);
+}
+
+/* clear button */
+
+.btn {
+  position: absolute;
+  background: none;
+  border: none;
+  display: none;
+  right: 50px;
+  width: 20px;
+  height: 20px;
+}
+
+.btn i {
+  color: var(--font-color-1);
+}
+
+/* search button */
+
+.search-button {
+  width: 45px;
+  height: 37px;
+  margin-left: 5px;
+  background: none;
+  border: 1px solid var(--font-color-2);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.search-button i {
+  font-size: 20px;
+  color: var(--font-color-1);
+}
+
+/*
+
+Karten Responsivness
+
+*/
+.map-container {
+  position: relative;
+  width: 100%;
+  max-height: 750px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.map-container::before {
+  content: '';
+  display: block;
+  padding-top: 75%;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/*
+
+Leaflet Styles
+
+*/
+
+.leaflet-container {
+  background-color: rgba(255, 0, 0, 0) !important;
+}
+
+.infobox {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: var(--main-bg-color);
+  border-radius: 5px;
+  border: 1px solid var(--font-color-2);
+  box-shadow: 0 0 5px var(--font-color-2);
+}
+.infobox h4 {
+  margin: 0 0 5px;
+  color: var(--font-color-2);
+}
+
+.legend {
+  background: var(--main-bg-color);
+  border-radius: 5px;
+  border: 1px solid var(--font-color-2);
+  padding: 10px;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+.custom-popup {
+  pointer-events: none;
+
+  max-width: 250px;
+}
+
+.custom-popup ul {
+  list-style: none;
+  margin-top: 5px;
+}
+
+.custom-popup ul li {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.custom-popup ul li h6 {
+  font-weight: normal;
+}
+
+.custom-popup ul:first-child {
+  margin: 0;
+}
+
+.custom-popup .leaflet-popup-tip {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* media quries*/
+
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  .search-container {
+    margin-right: 0;
+  }
+
+  .datalist {
+    max-height: 200px;
+  }
+}
